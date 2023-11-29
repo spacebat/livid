@@ -23,7 +23,18 @@ import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
-let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}})
+
+let Hooks = {}
+Hooks.GridCell = {
+    mounted() {
+        this.el.addEventListener('mousemove', e => {
+            let [x, y] = e.target.id.match(/cell-(\d+)-(\d+)/).slice(1,3)
+            this.pushEvent('mousemove', {x: parseInt(x), y: parseInt(y)})
+        });
+    }
+}
+
+let liveSocket = new LiveSocket("/live", Socket, {hooks: Hooks, params: {_csrf_token: csrfToken}})
 
 // Show progress bar on live navigation and form submits
 topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})
