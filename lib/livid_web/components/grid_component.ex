@@ -13,6 +13,7 @@ defmodule LividWeb.Components.GridComponent do
       <text x={(row+1) * @grid.cell_size - (@grid.cell_size / 2)}
             y={(col+1) * @grid.cell_size - (@grid.cell_size / 2)}
             font-size="14" text-anchor="middle" alignment-baseline="central"
+            style="pointer-events: none"
             fill={if value.shade > 128, do: "black", else: "white"}>
         <%= value.count %>
       </text>
