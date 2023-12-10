@@ -48,7 +48,7 @@ config :livid, LividWeb.Endpoint,
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/livid_web/(controllers|live|components)/.*(ex|heex)$"
+      ~r"lib/livid_web/(controllers|live|components)/(?:.+/)*(?!\.)[^/]+\.(ex|heex)$"
     ]
   ]
 
