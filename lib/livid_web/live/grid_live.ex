@@ -3,7 +3,7 @@ defmodule LividWeb.GridLive do
   require Logger
 
   @period_ms 2_000
-  @persist_ms 10_000
+  @persist_ms 120_000
   @persist_us @persist_ms * 1_000_000
 
   @impl true
