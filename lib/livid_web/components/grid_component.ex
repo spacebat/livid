@@ -8,8 +8,8 @@ defmodule LividWeb.Components.GridComponent do
     <%= for {{col, row}, value} <- @grid.cells do %>
       <rect x={row * @grid.cell_size} y={col * @grid.cell_size}
             width={@grid.cell_size - 2} height={@grid.cell_size - 2}
-            fill={value.fill}
-            id={"cell-#{col}-#{row}"} phx-hook="GridCell" />
+            fill={value.fill} id={"cell-#{col}-#{row}"}
+            phx-hook="GridCell" phx-click="cell_clicked"/>
       <text x={(row+1) * @grid.cell_size - (@grid.cell_size / 2)}
             y={(col+1) * @grid.cell_size - (@grid.cell_size / 2)}
             font-size="14" text-anchor="middle" alignment-baseline="central"
