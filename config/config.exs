@@ -9,6 +9,7 @@ import Config
 
 # Configures the endpoint
 config :livid, LividWeb.Endpoint,
+  adapter: Bandit.PhoenixAdapter,
   url: [host: "localhost"],
   render_errors: [
     formats: [html: LividWeb.ErrorHTML, json: LividWeb.ErrorJSON],
