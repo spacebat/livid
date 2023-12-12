@@ -14,6 +14,7 @@ defmodule Livid.Application do
       {Phoenix.PubSub, name: Livid.PubSub},
       # Start Finch
       {Finch, name: Livid.Finch},
+      Livid.GridServer,
       # Start the Endpoint (http/https)
       LividWeb.Endpoint
       # Start a worker by calling: Livid.Worker.start_link(arg)
